@@ -1,6 +1,8 @@
 from history import History
+from history import HistoryEntry
 
-#low level: HistoryConsoleReporter -> History
+
+# low level: HistoryConsoleReporter -> History
 class HistoryConsoleReporter:
     def __init__(self, history: History) -> None:
         self.history = history

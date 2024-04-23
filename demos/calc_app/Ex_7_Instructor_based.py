@@ -1,6 +1,6 @@
 from user_input import get_command, get_operand, get_entry_id
 from user_output import (
-    HistoryConsoleReporter,
+    ## HistoryConsoleReporter,
     HistoryFileReporter,
     print_invalid_command,
     print_result,

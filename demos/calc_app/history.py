@@ -7,7 +7,8 @@ class HistoryEntry:
     def __str__(self) -> str:
         return f"{self.id}: {self.command} {self.operand}"
 
-#high level
+
+# high level
 class History:
     def __init__(self) -> None:
         self.history: list[HistoryEntry] = []
