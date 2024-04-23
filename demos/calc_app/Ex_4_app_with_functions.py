@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def addval(cmdhistory: Any, idvalue: int, command: str, value: Any) -> None:
+def add_hist(cmdhistory: Any, idvalue: int, command: str, value: Any) -> None:
     cmdhistory.append({"id": idvalue, "command": command, "value": value})
 
 
@@ -55,7 +55,7 @@ def main() -> None:
 
             elif command == "history":
                 print("Showing History")
-                addval(cmdhistory, idvalue, command, "")
+                add_hist(cmdhistory, idvalue, command, "")
                 for action in cmdhistory:
                     print(action["id"], action["command"], action["value"])
 
@@ -76,25 +76,25 @@ def main() -> None:
                     print(f"I'm adding {constant} to {numberinput}")
                     constant = domath(constant, numberinput, command)
                     print(f"the result is {constant}")
-                    addval(cmdhistory, idvalue, command, numberinput)
+                    add_hist(cmdhistory, idvalue, command, numberinput)
 
                 elif command == "subtract":
                     print(f"I'm subtracting {constant} from {numberinput}")
                     constant = domath(constant, numberinput, command)
                     print(f"the result is {constant}")
-                    addval(cmdhistory, idvalue, command, numberinput)
+                    add_hist(cmdhistory, idvalue, command, numberinput)
 
                 elif command == "multiply":
                     print(f"I'm multiplying {constant} with {numberinput}")
                     constant = domath(constant, numberinput, command)
                     print(f"the result is {constant}")
-                    addval(cmdhistory, idvalue, command, numberinput)
+                    add_hist(cmdhistory, idvalue, command, numberinput)
 
                 elif command == "divide":
                     print(f"I'm dividing {constant} by {numberinput}")
                     constant = domath(constant, numberinput, command)
                     print(f"the result is {constant}")
-                    addval(cmdhistory, idvalue, command, numberinput)
+                    add_hist(cmdhistory, idvalue, command, numberinput)
 
         else:
             ### if command not reccognised tell them
