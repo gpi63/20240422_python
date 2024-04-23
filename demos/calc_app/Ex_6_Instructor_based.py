@@ -3,9 +3,13 @@ from history import (
     append_history_entry,
     remove_history_entry,
     clear_history_entries,
+)
+from user_output import (
+    print_invalid_command,
+    print_result,
+    print_error,
     print_history_entries,
 )
-from user_output import print_invalid_command, print_result, print_error
 from calculator import calculator_result, calc_fns
 
 from typing import Any

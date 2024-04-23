@@ -1,9 +1,11 @@
 from typing import Any
 
+
 def next_entry_id(history: list[dict[str, Any]]) -> int:
     if history:
         return max(entry["id"] for entry in history) + 1
     return 1
+
 
 def append_history_entry(
     operation: str, operand: float, history: list[dict[str, Any]]
@@ -26,17 +28,3 @@ def remove_history_entry(entry_id: int, history: list[dict[str, Any]]) -> None:
 
 def clear_history_entries(history: list[dict[str, Any]]) -> None:
     history.clear()
-
-
-def print_history_entries(history: list[dict[str, Any]]) -> None:
-    for entry in history:
-        entry_id = entry["id"]
-        entry_command = entry["command"]
-        entry_operand = entry["operand"]
-        print(
-            (
-                f"id: {entry_id}, "
-                f"command: {entry_command}, "
-                f"operand: {entry_operand}"
-            )
-        )
