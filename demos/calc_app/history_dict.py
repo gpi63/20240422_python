@@ -1,3 +1,4 @@
+import json
 from typing import TypedDict
 
 
@@ -42,3 +43,19 @@ class HistoryDict:
 
     def clear_history_entries(self) -> None:
         self.__history.clear()
+
+    def save_history(self) -> None:
+        with open("history.json", "w") as file:
+            json.dump(self.__history, file)
+
+    def read_history(self) -> None:
+        with open("history.json", "r") as file:
+            data = json.load(file)
+            for item in data:
+                print(
+                    (
+                        f"id: {item['id']}, "
+                        f"command: {item['command']}, "
+                        f"operand: {item['operand']}"
+                    )
+                )

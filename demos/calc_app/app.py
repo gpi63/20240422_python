@@ -24,9 +24,16 @@ class CalculatorTool:
     def __init__(self, history: History):
         self.history = history
 
+    ## clears the file
+    with open("commands.txt", "w+") as cmdfile:
+        cmdfile.write("")
+
     def run(self) -> None:
         while True:
             command = get_command()
+            if command != "remove":
+                with open("commands.txt", "a") as cmdfile:
+                    cmdfile.write(command)
 
             if command in calc_fns:
                 try:
@@ -44,6 +51,10 @@ class CalculatorTool:
                 ).print_history_entries()
             elif command == "remove":
                 self.history.remove_history_entry(get_entry_id())
+            elif command == "save":
+                self.history.save_history()
+            elif command == "read":
+                self.history.read_history()
             elif command == "clear":
                 self.history.clear_history_entries()
             elif command == "exit":
@@ -67,6 +78,7 @@ class CalculatorTool:
 
 def main() -> None:
     history = create_history_factory("obj")
+    # history = create_history_factory("dict")
     calculator_tool = CalculatorTool(history)
     calculator_tool.run()
 

@@ -1,3 +1,6 @@
+import json
+
+
 class HistoryEntry:
     def __init__(self, entry_id: int, operation: str, operand: float) -> None:
         self.id = entry_id
@@ -38,3 +41,19 @@ class HistoryObj:
 
     def clear_history_entries(self) -> None:
         self.__history.clear()
+
+    def save_history(self) -> None:
+        with open("history.json", "w") as file:
+            json.dump([p.__dict__ for p in self.__history], file)
+
+    def read_history(self) -> None:
+        with open("history.json", "r") as file:
+            data = json.load(file)
+            for item in data:
+                print(
+                    (
+                        f"id: {item['id']}, "
+                        f"command: {item['command']}, "
+                        f"operand: {item['operand']}"
+                    )
+                )
