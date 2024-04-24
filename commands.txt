@@ -1,1 +1,1 @@
-readhistory
+readhistory/bin/python /workspaces/20240422_python/demos/hello_world/explore.pyexit
