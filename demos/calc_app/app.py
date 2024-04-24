@@ -1,4 +1,3 @@
-### seeing if sync will work
 from typing import Protocol
 from user_input import get_command, get_operand, get_entry_id
 from user_output import (
