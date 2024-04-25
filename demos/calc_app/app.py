@@ -1,4 +1,6 @@
 import logging
+import yaml
+from pathlib import Path
 from datetime import datetime
 
 from user_input import get_command, get_operand, get_entry_id
@@ -13,6 +15,24 @@ from history_obj import HistoryObj
 from history_dict import HistoryDict
 from history import History
 from history_storage import HistoryStorage
+
+
+def read_config() -> None:
+    try:
+        config_file_path = Path("config.yml")
+
+        with config_file_path.open("r", encoding="UTF-8") as config_file:
+            config = yaml.load(config_file, Loader=yaml.SafeLoader)
+            logging.basicConfig(
+                filename=config["config"]["filename"],
+                level=getattr(
+                    logging, config["config"]["loglevel"], logging.WARNING
+                ),
+                format="%(levelname)s: %(message)s",
+            )
+
+    except IOError as exc:
+        print(f"Error: {exc}")
 
 
 def create_history_factory(kind: str = "obj") -> History:
@@ -118,6 +138,7 @@ class CalculatorTool:
 
 
 def main() -> None:
+    read_config()
     history = create_history_factory("obj")
     calculator_tool = CalculatorTool(history)
     calculator_tool.run()

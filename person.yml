@@ -1,0 +1,8 @@
+address:
+  city: Boston
+  state: MA
+first_name: Bob
+last_name: Smith
+phone_number:
+- 555-123-1234
+- 555-789-6789
