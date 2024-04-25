@@ -16,23 +16,31 @@ from history_dict import HistoryDict
 from history import History
 from history_storage import HistoryStorage
 
+config_file_path = Path("config.yml")
+with config_file_path.open("r", encoding="UTF-8") as config_file:
+    config = yaml.load(config_file, Loader=yaml.SafeLoader)
 
-def read_config() -> None:
-    try:
-        config_file_path = Path("config.yml")
+# def get_log_level(level: str) -> int:
+#     if level == "DEBUG":
+#         return logging.DEBUG
+#     elif level == "INFO":
+#         return logging.INFO
+#     elif level == "WARNING":
+#         return logging.WARNING
+#     elif level == "ERROR":
+#         return logging.ERROR
+#     elif level == "CRITICAL":
+#         return logging.CRITICAL
+#     else:
+#         return logging.WARNING
 
-        with config_file_path.open("r", encoding="UTF-8") as config_file:
-            config = yaml.load(config_file, Loader=yaml.SafeLoader)
-            logging.basicConfig(
-                filename=config["config"]["filename"],
-                level=getattr(
-                    logging, config["config"]["loglevel"], logging.WARNING
-                ),
-                format="%(levelname)s: %(message)s",
-            )
 
-    except IOError as exc:
-        print(f"Error: {exc}")
+logging.basicConfig(
+    filename=config["log_file"],
+    # level=get_log_level(config["log_level"]),
+    level=getattr(logging, config["log_level"], logging.WARNING),
+    format="%(levelname)s: %(message)s",
+)
 
 
 def create_history_factory(kind: str = "obj") -> History:
@@ -93,6 +101,7 @@ class CalculatorTool:
             print("Invalid division by zero")
 
     def run(self) -> None:
+        logging.log(logging.INFO, "app started")
         while True:
             try:
                 command_name, command_arg = parse_command(get_command())
@@ -138,7 +147,6 @@ class CalculatorTool:
 
 
 def main() -> None:
-    read_config()
     history = create_history_factory("obj")
     calculator_tool = CalculatorTool(history)
     calculator_tool.run()

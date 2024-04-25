@@ -7,11 +7,3 @@ timestamp: 2024-04-24T20:47:06.263703, command: clear
 timestamp: 2024-04-24T20:47:08.226454, command: history
 timestamp: 2024-04-24T20:47:10.959994, command: load
 timestamp: 2024-04-24T20:47:12.431717, command: history
-timestamp: 2024-04-25T21:18:18.161914, command: exit, args: None
-timestamp: 2024-04-25T21:19:56.128224, command: exit, args: None
-timestamp: 2024-04-25T21:20:37.181585, command: exit, args: None
-timestamp: 2024-04-25T21:27:09.431243, command: exit, args: None
-timestamp: 2024-04-25T21:30:40.042222, command: exit, args: None
-timestamp: 2024-04-25T21:35:40.390418, command: a, args: None
-timestamp: 2024-04-25T21:35:47.011794, command: exit, args: None
-timestamp: 2024-04-25T22:08:28.149647, command: exit, args: None
