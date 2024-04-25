@@ -1,0 +1,68 @@
+timestamp: 2024-04-25T17:41:07.311257, command: add
+timestamp: 2024-04-25T17:41:40.091540, command: exit
+timestamp: 2024-04-25T17:41:48.663705, command: add
+timestamp: 2024-04-25T17:41:54.260271, command: add
+timestamp: 2024-04-25T17:41:59.029555, command: divide
+timestamp: 2024-04-25T17:42:12.400966, command: exit
+timestamp: 2024-04-25T17:42:41.401158, command: add
+timestamp: 2024-04-25T17:42:44.188651, command: add
+timestamp: 2024-04-25T17:42:47.052222, command: add
+timestamp: 2024-04-25T17:42:51.420856, command: history
+timestamp: 2024-04-25T17:42:59.231636, command: remove
+timestamp: 2024-04-25T17:43:49.226507, command: add
+timestamp: 2024-04-25T17:43:50.985141, command: add
+timestamp: 2024-04-25T17:43:52.919932, command: add
+timestamp: 2024-04-25T17:43:55.966508, command: history
+timestamp: 2024-04-25T17:44:01.216553, command: remove
+timestamp: 2024-04-25T17:44:06.295962, command: history
+timestamp: 2024-04-25T17:45:58.159549, command: exit
+timestamp: 2024-04-25T17:46:07.400145, command: add
+timestamp: 2024-04-25T17:46:09.554401, command: add
+timestamp: 2024-04-25T17:46:13.412210, command: add
+timestamp: 2024-04-25T17:46:17.925583, command: divide
+timestamp: 2024-04-25T17:46:23.481134, command: suptract 0.5
+timestamp: 2024-04-25T17:46:33.792185, command: subtract
+timestamp: 2024-04-25T17:47:06.904966, command: save gary.test
+timestamp: 2024-04-25T17:47:26.978461, command: exit
+timestamp: 2024-04-25T17:47:32.369579, command: add
+timestamp: 2024-04-25T17:47:35.951528, command: add
+timestamp: 2024-04-25T17:47:37.769389, command: add
+timestamp: 2024-04-25T17:47:42.017514, command: divide
+timestamp: 2024-04-25T17:47:47.951511, command: subtract
+timestamp: 2024-04-25T17:48:03.426038, command: multiply
+timestamp: 2024-04-25T17:48:10.697267, command: save gary.test
+timestamp: 2024-04-25T17:49:37.487266, command: save gary
+timestamp: 2024-04-25T17:50:41.323205, command: load
+timestamp: 2024-04-25T17:51:14.066644, command: add
+timestamp: 2024-04-25T17:51:16.833549, command: add
+timestamp: 2024-04-25T17:51:18.974873, command: add
+timestamp: 2024-04-25T17:51:25.886598, command: save gary.test
+timestamp: 2024-04-25T17:52:55.709364, command: exit
+timestamp: 2024-04-25T17:53:03.292719, command: add
+timestamp: 2024-04-25T17:53:10.570060, command: save test.test
+timestamp: 2024-04-25T17:54:06.016825, command: exit
+timestamp: 2024-04-25T17:54:12.761054, command: add
+timestamp: 2024-04-25T17:54:15.461283, command: add
+timestamp: 2024-04-25T17:55:01.695009, command: add
+timestamp: 2024-04-25T17:55:20.461996, command: save
+timestamp: 2024-04-25T17:57:24.852321, command: exit
+timestamp: 2024-04-25T17:57:30.753558, command: add
+timestamp: 2024-04-25T17:57:33.134281, command: add
+timestamp: 2024-04-25T17:57:35.285819, command: add
+timestamp: 2024-04-25T17:59:33.376803, command: add
+timestamp: 2024-04-25T17:59:42.984753, command: add
+timestamp: 2024-04-25T17:59:46.419167, command: add
+timestamp: 2024-04-25T17:59:51.581454, command: save
+timestamp: 2024-04-25T18:00:00.231278, command: load
+timestamp: 2024-04-25T18:00:09.459645, command: exit
+timestamp: 2024-04-25T18:00:34.757454, command: add
+timestamp: 2024-04-25T18:00:37.057641, command: add
+timestamp: 2024-04-25T18:00:49.613747, command: divie 4
+timestamp: 2024-04-25T18:00:53.535236, command: divide
+timestamp: 2024-04-25T18:00:58.550923, command: save
+timestamp: 2024-04-25T18:01:05.332042, command: add
+timestamp: 2024-04-25T18:01:10.448820, command: load
+timestamp: 2024-04-25T18:01:16.498382, command: exit
+timestamp: 2024-04-25T18:03:11.667846, command: add
+timestamp: 2024-04-25T18:07:16.979398, command: add
+timestamp: 2024-04-25T18:08:03.577311, command: add

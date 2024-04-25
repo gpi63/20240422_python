@@ -1,4 +1,5 @@
 import logging
+import re
 from datetime import datetime
 
 from user_input import get_command, get_operand, get_entry_id
@@ -30,6 +31,24 @@ class CalculatorTool:
     def run(self) -> None:
         while True:
             command = get_command()
+            pattern = r"(add|subtract|multiply|divide|remove|load|save) (\S+)"
+
+            match = re.match(pattern, command)
+            if match:
+                command = match.group(1)
+                if command == "load" or command == "save":
+                    # print("load or save detected")
+                    operand = str(match.group(2))
+                    if operand is None:
+                        operand = "history.json"
+                else:
+                    operand = int(match.group(2))
+                    if operand is None:
+                        operand = 0
+                # print(f"command:- {command}")
+                # print(f"operand:- {operand}")
+            else:
+                print("No match found")
 
             with open("command-log.txt", "a") as command_log_file:
                 command_log_file.write(
@@ -41,7 +60,7 @@ class CalculatorTool:
 
             if command in calc_fns:
                 try:
-                    operand = get_operand()
+                    ##operand = get_operand()
                     if command == "divide" and operand == 0:
                         raise ZeroDivisionError("Cannot divide by zero")
                     self.__history.append_history_entry(command, operand)
@@ -54,11 +73,11 @@ class CalculatorTool:
                     self.__history, "entries.txt"
                 ).print_history_entries()
             elif command == "remove":
-                self.__history.remove_history_entry(get_entry_id())
+                self.__history.remove_history_entry(operand)
             elif command == "save":
-                self.__history_storage.save_history()
+                self.__history_storage.save_history(operand)
             elif command == "load":
-                self.__history_storage.load_history()
+                self.__history_storage.load_history(operand)
             elif command == "clear":
                 self.__history.clear_history_entries()
             elif command == "exit":
