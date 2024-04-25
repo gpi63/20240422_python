@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 from user_input import get_command, get_operand, get_entry_id
 from user_output import (
@@ -6,12 +7,12 @@ from user_output import (
     HistoryFileReporter,
     print_invalid_command,
     print_result,
-    print_error,
 )
 from calculator import calculator_result, calc_fns
 from history_obj import HistoryObj
 from history_dict import HistoryDict
 from history import History
+from history_storage import HistoryStorage
 
 
 def create_history_factory(kind: str = "obj") -> History:
@@ -22,41 +23,44 @@ def create_history_factory(kind: str = "obj") -> History:
 
 class CalculatorTool:
     def __init__(self, history: History):
-        self.history = history
+        self.__history = history
 
-    ## clears the file
-    with open("commands.txt", "w+") as cmdfile:
-        cmdfile.write("")
+        self.__history_storage = HistoryStorage(self.__history)
 
     def run(self) -> None:
         while True:
             command = get_command()
-            if command != "remove":
-                with open("commands.txt", "a") as cmdfile:
-                    cmdfile.write(command)
+
+            with open("command-log.txt", "a") as command_log_file:
+                command_log_file.write(
+                    (
+                        f"timestamp: {datetime.now().isoformat()}"
+                        f", command: {command}\n"
+                    )
+                )
 
             if command in calc_fns:
                 try:
                     operand = get_operand()
                     if command == "divide" and operand == 0:
                         raise ZeroDivisionError("Cannot divide by zero")
-                    self.history.append_history_entry(command, operand)
+                    self.__history.append_history_entry(command, operand)
                 except ZeroDivisionError as e:
                     logging.error(e)
                     continue
             elif command == "history":
-                HistoryConsoleReporter(self.history).print_history_entries()
+                HistoryConsoleReporter(self.__history).print_history_entries()
                 HistoryFileReporter(
-                    self.history, "entries.txt"
+                    self.__history, "entries.txt"
                 ).print_history_entries()
             elif command == "remove":
-                self.history.remove_history_entry(get_entry_id())
+                self.__history.remove_history_entry(get_entry_id())
             elif command == "save":
-                self.history.save_history()
-            elif command == "read":
-                self.history.read_history()
+                self.__history_storage.save_history()
+            elif command == "load":
+                self.__history_storage.load_history()
             elif command == "clear":
-                self.history.clear_history_entries()
+                self.__history.clear_history_entries()
             elif command == "exit":
                 return
             else:
@@ -65,7 +69,7 @@ class CalculatorTool:
                 continue
 
             try:
-                print_result(calculator_result(self.history))
+                print_result(calculator_result(self.__history))
             except ZeroDivisionError as e:
                 logging.error(e)
                 print(
@@ -78,7 +82,6 @@ class CalculatorTool:
 
 def main() -> None:
     history = create_history_factory("obj")
-    # history = create_history_factory("dict")
     calculator_tool = CalculatorTool(history)
     calculator_tool.run()
 
